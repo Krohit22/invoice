@@ -49,7 +49,9 @@ export default function CreateBill() {
 
     }else if(Platform.OS==='android'){
       let samt = 0;
-      samt = parseInt(formData.Qty)* parseInt(formData.price);
+      let qty = parseInt(formData.Qty) || 0;
+      let price = parseInt(formData.price)|| 0;
+      samt = qty * price;
       
       const newRow = `
       <tr class="row">
@@ -90,15 +92,15 @@ export default function CreateBill() {
   <meta name="viewport" content="width=device-width initial-scale=1.0">
   <title>replit</title>
   <style>
-        @page {
+    @page {
       margin: 20px;
     }
-                    .page {
-                    margin-bottom: 20px;
-                }
-                .page-break {
-                    page-break-before: always;
-                }
+    .page {
+      margin-bottom: 20px;
+    }
+    .page-break {
+      page-break-before: always;
+    }
 
 
   </style>
@@ -138,7 +140,7 @@ export default function CreateBill() {
   
       
           <table
-      style="width: 100%; border: 1px solid black; border-collapse: collapse;margin-bottom:100px;table-layout: fixed;position: relative;">
+      style="width: 100%; border: 1px solid black; border-collapse: collapse;margin-bottom:100px;table-layout: fixed;margin-top:50px">
       <thead>
         <tr>
           <th
@@ -163,21 +165,27 @@ export default function CreateBill() {
       </thead>
       <tbody id="table-body">
         ${rows.join('')}
+            <tr>
+      <th colspan="5" style="border: 1px solid black; border-collapse: collapse;font-size: 16px; font-weight: 900; background-color:aquamarine; padding: 7px;word-wrap: break-word;overflow-wrap: break-word;z-index: 1;display:sticky;top:0;">
+            Subtotal</th>
+            <td class="price" style="border: 1px solid black; border-collapse: collapse; text-align: center; font-size: 16px; color: white; background-color:skyblue; font-weight: 700; padding: 5px; overflow-wrap:break-word; word-wrap:break-word;page-break-inside: avoid;break-inside: avoid;">${sum}</td>
+    </tr>
+        <tr>
+      <th colspan="5" style="border: 1px solid black; border-collapse: collapse; font-size: 16px; font-weight: 900; background-color:aquamarine; padding: 7px;word-wrap: break-word;overflow-wrap: break-word;z-index: 1;display:sticky;top:0;">
+            Taxes</th>
+            <td class="price" style="border: 1px solid black; border-collapse: collapse; text-align: center; font-size: 16px; color: white; background-color:skyblue; font-weight: 700; padding: 5px; overflow-wrap:break-word; word-wrap:break-word;page-break-inside: avoid;break-inside: avoid;"></td>
+    </tr>
+        <tr>
+      <th colspan="5" style="border: 1px solid black; border-collapse: collapse; font-size: 16px; font-weight: 900; background-color:aquamarine; padding: 7px;word-wrap: break-word;overflow-wrap: break-word;z-index: 1;display:sticky;top:0;">
+            total</th>
+            <td class="price" style="border: 1px solid black; border-collapse: collapse; text-align: center; font-size: 16px; color: white; background-color:skyblue; font-weight: 700; padding: 5px; overflow-wrap:break-word; word-wrap:break-word;page-break-inside: avoid;break-inside: avoid;">${sum}</td>
+    </tr>
 
 
       </tbody>
     </table>
       
 
-      <div>
-          
-              <ul style="list-style:none; margin-top:50px;margin-left:10px;">
-                  <li><label>Sub Total : </label>${sum}</li>
-                  <li><label>Taxes : </label></li>
-                  <li><label>Total :</label>${sum}</li>
-  
-              </ul>
-      </div>
 
     </div>
 
