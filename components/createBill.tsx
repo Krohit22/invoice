@@ -140,7 +140,7 @@ export default function CreateBill() {
   
       
           <table
-      style="width: 90%; border: 1px solid black; border-collapse: collapse;margin-bottom:100px;table-layout: fixed;margin-top:50px">
+      style="width: 90%; border: 1px solid black; border-collapse: collapse;margin-bottom:100px;table-layout: fixed;margin-top:50px;position:relative;left:40px;">
       <thead>
         <tr>
           <th
