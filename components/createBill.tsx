@@ -69,14 +69,7 @@ export default function CreateBill() {
       ...prevFormData,
       amt: `${samt}`,
     }));
-    setFormData({ SrNo: '', items: '', Qty: '', units: '',price:'',amt:'' });
-    
-
-
-    
-      
-      
-      
+    setFormData({ SrNo: '', items: '', Qty: '', units: '',price:'',amt:'' });    
     
     }
 
